@@ -1,0 +1,10 @@
+# Force HTTPS redirects for all domains
+http://stormavenue.com/* https://stormavenue.com/:splat 301!
+http://www.stormavenue.com/* https://www.stormavenue.com/:splat 301!
+http://stormavenue.netlify.app/* https://stormavenue.netlify.app/:splat 301!
+
+# Redirect www to non-www (optional - choose one)
+https://www.stormavenue.com/* https://stormavenue.com/:splat 301!
+
+# Redirect netlify subdomain to main domain (optional)
+https://stormavenue.netlify.app/* https://stormavenue.com/:splat 301!

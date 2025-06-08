@@ -1,0 +1,36 @@
+[images]
+  remote_images = ["https://source.unsplash.com/.*", "https://images.unsplash.com/.*", "https://ext.same-assets.com/.*", "https://ugc.same-assets.com/.*"]
+
+[build]
+  command = "bun install && bun run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Form handling
+[[plugins]]
+  package = "netlify-plugin-form-submissions"
+
+[forms]
+  [forms.contact-quote]
+    action = "/contact-us/thank-you"
+    name = "contact-quote"
+
+    [forms.contact-quote.notification]
+      subject = "New Quote Request from Storm Avenue Website"
+      to = "houstoncase@stormavenue.net"
+      template = """
+New Quote Request from Storm Avenue Website
+
+Name: {{name}}
+Email: {{email}}
+Phone: {{phone}}
+Service Needed: {{service}}
+Message: {{message}}
+
+Submitted on: {{date}}
+"""
